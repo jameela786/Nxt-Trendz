@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
-
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
 import Products from './components/Products'
@@ -40,11 +39,13 @@ class App extends Component {
 
     //   TODO: Update the code here to implement addCartItem
   }
+
   removeCartItem = id => {
     const {cartList} = this.state
     const updatedCartList = cartList.filter(each => each.id !== id)
     this.setState({cartList: updatedCartList})
   }
+
   removeAllCartItems = () => {
     this.setState({cartList: []})
   }
@@ -73,6 +74,7 @@ class App extends Component {
       return {cartList: updatedCartList}
     })
   }
+
   incrementCartItemQuantity = id => {
     this.setState(prevState => {
       const itemToUpdate = prevState.cartList.find(item => item.id === id)
@@ -95,6 +97,7 @@ class App extends Component {
       return null // Return null if no changes are needed
     })
   }
+
   render() {
     const {cartList} = this.state
 
